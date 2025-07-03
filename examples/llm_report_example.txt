@@ -1,0 +1,13 @@
+Reasoning:
+
+Family History: The patient has a family history of lung cancer (maternal uncle), which is a significant risk factor for developing lung cancer. However, the uncle was a smoker, and smoking is a major contributor to lung cancer risk. The patient herself is a former smoker but quit in 2012.
+Smoking History: The patient was a smoker for 20 years, consuming 10 cigarettes per day. She quit in 2012, which is a positive factor, but the prolonged smoking history increases her risk.
+Alcohol Consumption: The patient drinks nightly, consuming 1-2 glasses of wine. While moderate alcohol consumption is not a major risk factor for lung cancer, it can contribute to overall health risks.
+Occupation and Lifestyle: The patient has a sedentary job and a BMI consistently over 30, indicating obesity. Both sedentary lifestyle and obesity are associated with increased cancer risk, including lung cancer.
+Medical History: The patient has COPD, which is a known risk factor for lung cancer. Additionally, her pre-diabetes and hypertension add to her overall health risks.
+Symptoms and Medical Notes: The patient has had symptoms such as shortness of breath, cough, and wheezing, which could be indicative of respiratory issues. However, these symptoms are not specifically linked to lung cancer in the provided notes.
+Preventative Screening: The patient's preventative screening is not up to date, particularly for mammograms and colonoscopies, which are not directly related to lung cancer but indicate a general lack of adherence to screening guidelines.
+Mental Health: The patient's mental health issues, including depression and anxiety, can affect overall health and adherence to medical advice, but they are not direct risk factors for lung cancer.
+Explanation: The patient's risk for lung cancer is elevated due to her family history of lung cancer, her prolonged smoking history, and her current health conditions such as COPD and obesity. However, the fact that she quit smoking and does not have current symptoms specifically indicative of lung cancer mitigates some of this risk.
+
+Score: 0.025
