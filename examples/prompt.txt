@@ -1,0 +1,129 @@
+You are an advanced medical AI model trained to predict the risk of developing specified cancer over then next 3650 days based on the electronic health record of a patient.  The specified cancer are: Lung. Your task is to analyze the provided patient profile and medical progress notes by family doctor provided at the end of the message to determine this risk.  The patient profile and the medical progress notes will be provided as a json.  Your analysis should take into account all relevant factors including lifestyle, symptoms, frequency of visists, medication, patterns in the EHR, current medical guidelines, potential relevant discussion found online and the latest research on cancer risk prediction.
+
+Please follow these steps: 
+
+1. Extract pertinent information from the patient's EHR that might influence cancer risk, such as family history, lifestyle choices (e.g. smoking, alcohol consumptions, and all other relevant choices), pre-existing conditions, lab results, and any documented symptoms.
+2. Combine these factors with your knowledge of cancer risk derived from training data and recent medical research. You can include both formal and informal data. Consider both direct and indirect indicators of cancer risk.
+3. Use chain of thought reasoning to logically deduce the patient's risk. Clearly explain your reasoning step-by-step, referencing specific details from the patient's EHR and how they contribute to the overall rusk assessment.
+4. Calculate the probability of the patient developing cancer within the next 3650 days, ensuring the result is in decimal form with 3 significant digits.
+5. Provide a concise explanation of your reasoning followed by the risk probability in the required format. Do not output any text after outputting the probability of the patient developing cancer, This is a short example of the format required: Reasoning: Your step in Step 1 - 3. Explanation: Short explanation on your reasoning Score: The probability of the patient developing cancer within the next 3650 days.
+
+Ensure your response follows the above format strictly. The probability should not be high for everyone; it should accurately reflect the individual's risk based on their medical history. This will help in identifying patients who geniuely need additional screening and prevent unnecessary cost and risks for the patient. Stay focused and dedicated to your goals. Your consistent efforts will lead to outstanding achievements.
+
+Patient Profile:
+
+{
+  "demographics": {
+    "age_at_first_visit": 42,
+    "sex": "Female",
+    "ethnicity": "South Asian",
+    "occupation": "Administrative assistant",
+    "marital_status": "Divorced",
+    "number_of_children": 3
+  },
+  "past_medical_history": [
+    "Hypertension (dx 2009)",
+    "GERD",
+    "Seasonal allergies",
+    "COPD (mild)",
+    "Tension headaches",
+    "Insomnia",
+    "Recurrent UTIs",
+    "Pre-diabetes (HbA1c peaked at 6.8%)"
+  ],
+  "surgical_history": [
+    "C-section (2002)",
+    "Appendectomy (childhood)"
+  ],
+  "medications": [
+    "Ramipril 10mg OD",
+    "Zopiclone PRN",
+    "Ventolin inhaler PRN",
+    "Metformin 500mg BID (trial)",
+    "Occasional OTC NSAIDs"
+  ],
+  "allergies": {
+    "medications": ["None known"],
+    "environmental": ["Dust mites", "Pollen", "Cats"]
+  },
+  "family_history": [
+    "Mother – Hypothyroidism, generalized anxiety disorder",
+    "Father – Hypertension, stroke at 67",
+    "Brother – MI at 53",
+    "Maternal uncle – Lung cancer (smoker)",
+    "Grandfather – Colon cancer in 70s"
+  ],
+  "social_history": {
+    "smoking": "Former smoker (quit 2012), previously 10/day x 20 years",
+    "alcohol": "Drinks nightly, ~1-2 glasses wine",
+    "recreational_drugs": "Denies",
+    "living_situation": "Lives alone",
+    "employment": "Full-time, sedentary job",
+    "recent_travel": [
+      "Mexico (2012)",
+      "Cuba (2013)",
+      "Dominican Republic (2015)"
+    ]
+  },
+  "psychosocial_history": {
+    "mental_health": [
+      "Depressive episode post-divorce",
+      "Anxiety exacerbated by work stress",
+      "Currently on sertraline"
+    ],
+    "support_system": "Limited – estranged from siblings, children live at home but not emotionally supportive"
+  },
+  "risk_factors": [
+    "FHx of diabetes and CVD",
+    "Sedentary lifestyle",
+    "BMI consistently >30",
+    "Irregular adherence to BP meds",
+    "Alcohol use >7 drinks/week",
+    "Low socioeconomic status",
+    "History of smoking",
+    "High work-related stress"
+  ],
+  "preventative_screening": {
+    "cancer": {
+      "Pap smear": "Done 2011, 2014 (normal)",
+      "Mammogram": "Not up to date",
+      "Colonoscopy": "Not done – over age 50"
+    },
+    "vaccines": [
+      "Influenza yearly",
+      "Tdap last given in 2010",
+      "No Hep A/B or travel vaccines before DR trip"
+    ]
+  }
+}
+
+
+Medical Progress Notes:
+
+{
+  "1": {"date": "2010-03-15", "note_id": "20100315001", "notes": "Follow-up: GERD, pt using OTC antacids, denies heartburn now. Wants Rx for ranitidine. BP 132/78, Wt stable."},
+  "2": {"date": "2010-07-22", "note_id": "20100722002", "notes": "Travel consult – going to india. needs hep A/B booster. Malaria proph started. mild ankle swell pm."},
+  "3": {"date": "2010-12-04", "note_id": "20101204003", "notes": "Cold sx 5d. Cough, no sputum. no fever. O/E: clear lungs, nasal congestion. Dx: viral URTI. rest + fluids."},
+  "4": {"date": "2011-01-19", "note_id": "20110119004", "notes": "Results – labs ok. Cholesterol borderline, discussed diet changes. F/u in 6 mos. Pt reports fatigue, r/o anemia."},
+  "5": {"date": "2011-05-11", "note_id": "20110511005", "notes": "Request for WSIB form. Hurt back lifting heavy boxes at work. Tender lumbar spine. No red flags. Prescribed naproxen."},
+  "6": {"date": "2011-07-20", "note_id": "20110720006", "notes": "Pap smear – last 3y ago. Pelvic normal, cervix healthy. Also discussed birth control – on depo. No complaints."},
+  "7": {"date": "2011-09-13", "note_id": "20110913007", "notes": "Worsening migraines. now 2-3/wk. Taking advil but not helping. Consider propranolol or topiramate. Imaging not yet done."},
+  "8": {"date": "2011-11-29", "note_id": "20111129008", "notes": "Flu shot given. Sore throat x2d. O/E: no erythema, no exudate. likely viral. Work stress. sleeping <5h."},
+  "9": {"date": "2012-01-25", "note_id": "20120125009", "notes": "BP check – 148/92. repeat 144/88. Non-adherent to ramipril. Pt ran out 2wk ago. Reinforce adherence."},
+  "10": {"date": "2012-04-02", "note_id": "20120402010", "notes": "Ankle pain post twisting 3d ago. swollen + bruised. ant drawer neg. Dx: sprain. Crutches. ICE. Work note."},
+  "11": {"date": "2012-06-06", "note_id": "20120606011", "notes": "Annual exam. 3 kids, drinks socially. Quit smoking 4y ago. Still obese. Wants to try metformin for wt loss?"},
+  "12": {"date": "2012-09-12", "note_id": "20120912012", "notes": "Preventative Checklist no smoking since june, except had 2 cigarettes in mexico. 3 kids, mild arm pain"},
+  "13": {"date": "2012-12-15", "note_id": "20121215013", "notes": "F/u – insomnia. zopiclone helping some nights, but feels groggy. Suggest sleep hygiene. Refer CBT-I?"},
+  "14": {"date": "2013-02-18", "note_id": "20130218014", "notes": "Back from cuba. Rash on arms/legs. itchy. started 3d ago. no fever. suspect allergic rxn – sun or detergent? antihistamines started."},
+  "15": {"date": "2013-05-03", "note_id": "20130503015", "notes": "Lab: HgbA1c 6.2 – prediabetic range. weight up 3kg. Discussed low carb options. Pt wants dietician referral."},
+  "16": {"date": "2013-08-12", "note_id": "20130812016", "notes": "Check bp and rx renewal. Copd, smoking increased. No chest pain, cough. chest bs not distant, no wheezes."},
+  "17": {"date": "2013-10-11", "note_id": "20131011017", "notes": "Annual exam. 1. Feels SOB. smoker. Has quit many times. 2. Pain in leg after waking up, wake from pain at night occassionally. Has fever + cough, normal thyroid, oral lesions present; Lungs: poor A/E, abdomen tender, very little physical activity, increase alcohol recently"},
+  "18": {"date": "2014-01-08", "note_id": "20140108018", "notes": "UTI sx. burning, freq. No fever or flank pain. Urine dip pos LE/nitrites. Nitrofurantoin 5d given. 1st UTI in yrs."},
+  "19": {"date": "2014-03-14", "note_id": "20140314019", "notes": "Mood low, tearful. relationship ended. not suicidal. trying to stay active. trial of citalopram 10mg offered."},
+  "20": {"date": "2014-07-20", "note_id": "20140720020", "notes": "Lab Requistition. Clinician Number 768342 Lipids=True CBC=True A1c=Y TSH=Y"},
+  "21": {"date": "2014-10-09", "note_id": "20141009021", "notes": "Sick note request. missed 3 days work. flu-like sx. resolving now. no more fever."},
+  "22": {"date": "2015-02-22", "note_id": "20150222022", "notes": "RT shoulder pain – worse w lifting. no trauma. tender at biceps tendon. likely tendonitis. rest, NSAID, physio."},
+  "23": {"date": "2015-06-11", "note_id": "20150611023", "notes": "Pre-op physical – hernia repair. All vitals WNL. ECG normal. cleared. advised no ASA 7d prior."},
+  "24": {"date": "2015-11-03", "note_id": "20151103024", "notes": "F/U diabetes. A1c 6.8. Taking metformin 500 BID. Tolerating. Discussed exercise, foot care. LDL high. statin started."},
+  "25": {"date": "2016-04-15", "note_id": "20160415025", "notes": "Cough x3wks. No fever. Some wheeze. CXR ordered. Rx ventolin PRN. Try to quit smoking again."}
+}
