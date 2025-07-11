@@ -1,3 +1,5 @@
+This LLM report is genereated using synthetic patient data.  No real patient data is included in this example.
+
 Reasoning:
 
 Family History: The patient has a family history of lung cancer (maternal uncle), which is a significant risk factor for developing lung cancer. However, the uncle was a smoker, and smoking is a major contributor to lung cancer risk. The patient herself is a former smoker but quit in 2012.
