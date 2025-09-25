@@ -1,1 +1,39 @@
+You are an advanced medical AI model trained to predict the risk of developing specified cancer over then next 1875 days based on the electronic health record of a patient.  The specified cancer are: Pancreas. Your task is to analyze the provided patient profile and medical progress notes by family doctor provided at the end of the message to determine this risk.  The patient profile and the medical progress notes will be provided as a json.  Your analysis should take into account all relevant factors including lifestyle, symptoms, frequency of visits, medication, patterns in the EHR, current medical guidelines, potential relevant discussion found online and the latest research on cancer risk prediction.
 
+Please follow these steps:
+1. Extract pertinent information from the patient's EHR that might influence cancer risk, such as family history, lifestyle choices (e.g. smoking, alcohol consumptions, and all other relevant choices), pre-existing conditions, lab results, and any documented symptoms.
+2. Combine these factors with your knowledge of cancer risk derived from training data and recent medical research. You can include both formal and informal data. Consider both direct and indirect indicators of cancer risk.
+3. Use chain of thought reasoning to logically deduce the patient's risk. Clearly explain your reasoning step-by-step, referencing specific details from the patient's EHR and how they contribute to the overall rusk assessment.
+4. Calculate the probability of the patient developing cancer within the next 1875 days, ensuring the result is in decimal form with 3 significant digits.
+5. Provide a concise explanation of your reasoning followed by the risk probability in the required format. Do not output any text after outputting the probability of the patient developing cancer, This is a short example of the format required: Reasoning: Your step in Step 1 - 3. Explanation: Short explanation on your reasoning Score: The probability of the patient developing cancer within the next 1875 days.
+Ensure your response follows the above format strictly. The probability should not be high for everyone; it should accurately reflect the individual's risk based on their medical history. This will help in identifying patients who genuinely need additional screening and prevent unnecessary cost and risks for the patient. Stay focused and dedicated to your goals. Your consistent efforts will lead to outstanding achievements.
+
+Medical Progress Notes:
+{
+  "1": {"date": "2010-01-18", "note_id": "20100118001", "notes": "Annual physical. No acute complaints. Mild heartburn after spicy foods. BMI 29, BP 132/84."},
+  "2": {"date": "2010-07-22", "note_id": "20100722002", "notes": "Cough x 5d, no fever. O/E lungs clear. Advised fluids + rest. Work note given."},
+  "3": {"date": "2011-02-14", "note_id": "20110214003", "notes": "Fatigue, trouble sleeping. Reports work stress. Denies CP, SOB. Labs ordered (CBC, TSH, glucose)."},
+  "4": {"date": "2011-08-30", "note_id": "20110830004", "notes": "Follow-up. Fasting glucose borderline 6.0. Mild overweight. Encouraged diet changes, walking."},
+  "5": {"date": "2012-01-19", "note_id": "20120119005", "notes": "Annual check. BP 138/86. Occasional mild indigestion. Weight stable. Smokes 8/day."},
+  "6": {"date": "2012-05-11", "note_id": "20120511006", "notes": "Abdominal bloating after meals, ongoing 3–4 mo. No red flag sx. Trial omeprazole. Check H. pylori."},
+  "7": {"date": "2012-09-12", "note_id": "20120912007", "notes": "Preventative visit. No smoking since June (except 2 cig on vacation). Mild fatigue. Arm ache intermittently."},
+  "8": {"date": "2013-01-22", "note_id": "20130122008", "notes": "Reports night sweats occasionally. Lost 3 kg over past yr, says due to ‘more walking’."},
+  "9": {"date": "2013-04-15", "note_id": "20130415009", "notes": "BP 150/92. Admits stopped ramipril. Restarted Rx. Reinforced adherence. Fasting glucose 6.3."},
+  "10": {"date": "2013-08-12", "note_id": "20130812010", "notes": "Follow-up BP. COPD stable. Smokes ½ pack/day. Reports mild back pain, worse at night."},
+  "11": {"date": "2013-10-11", "note_id": "20131011011", "notes": "Annual exam. SOB with stairs. Leg cramps at night. No chest pain. Abdomen soft, mild RUQ tenderness. Oral ulcers noted."},
+  "12": {"date": "2014-02-05", "note_id": "20140205012", "notes": "Persistent indigestion + early satiety. No vomiting. Weight down 2 kg since last year. Trial PPI again."},
+  "13": {"date": "2014-05-19", "note_id": "20140519013", "notes": "Routine follow-up. Labs: A1c 6.5. New Dx: type 2 diabetes. Start metformin 500mg BID. Smoking cessation advised."},
+  "14": {"date": "2014-09-02", "note_id": "20140902014", "notes": "Reports occasional upper abdo discomfort, not severe. Taking metformin but some diarrhea. Adjust dose."},
+  "15": {"date": "2014-12-11", "note_id": "20141211015", "notes": "Cold sx. Also reports fatigue, mild back ache. No fever. Exam unremarkable."},
+  "16": {"date": "2015-03-18", "note_id": "20150318016", "notes": "Abdominal cramps off/on. Thinks related to diet. No vomiting, bowels normal. Suggested food diary."},
+  "17": {"date": "2015-06-22", "note_id": "20150622017", "notes": "Follow-up diabetes. A1c 7.0. On metformin only. Encouraged exercise. Weight down 1 kg, says from walking dog."},
+  "18": {"date": "2015-09-14", "note_id": "20150914018", "notes": "C/o new back pain, worse mornings, radiates to abdomen at times. No neuro deficits. Ordered X-ray. Likely MSK."},
+  "19": {"date": "2015-12-08", "note_id": "20151208019", "notes": "Flu vaccine given. Notes ongoing fatigue. Sleeping poorly. Suspect stress related. Suggested CBT."},
+  "20": {"date": "2016-02-10", "note_id": "20160210020", "notes": "Appetite slightly reduced past month. Labs repeated: glucose ↑, LFT normal. Continue monitoring."},
+  "21": {"date": "2016-04-05", "note_id": "20160405021", "notes": "Still tired, says appetite fluctuates. 2 kg weight loss over 6 mo. Abdominal exam benign. Labs repeated."},
+  "22": {"date": "2016-07-13", "note_id": "20160713022", "notes": "Leg swelling after long flights. Doppler ordered to r/o DVT. No CP, SOB."},
+  "23": {"date": "2016-09-30", "note_id": "20160930023", "notes": "Checkup. BP 140/88. Diabetes A1c 7.2. Reports stomach ‘not right’ but thinks due to metformin. Offered dietician."},
+  "24": {"date": "2016-11-21", "note_id": "20161121024", "notes": "Persistent cough x 3wks. CXR ordered – ? infection. Weight down again 1 kg. Denies fever."},
+  "25": {"date": "2016-12-19", "note_id": "20161219025", "notes": "Complains of itchy skin + mild abdominal discomfort. Labs repeated: glucose ↑, LFT normal. Plan to repeat again."},
+  "26": {"date": "2016-12-30", "note_id": "20161230026", "notes": "Urgent call – labs show worsening glucose control. Pt feels fatigued. Will expedite GI referral."}
+}
